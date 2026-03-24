@@ -138,11 +138,7 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       <motion.div
         initial={false}
-        animate={
-          isMobile
-            ? { opacity: isOpen ? 1 : 0 }
-            : { height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }
-        }
+        animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
         transition={{ duration: 0.3 }}
         className="md:hidden overflow-hidden"
       >

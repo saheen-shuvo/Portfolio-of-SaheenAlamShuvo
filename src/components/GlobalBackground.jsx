@@ -39,8 +39,8 @@ const GlobalBackground = () => {
 
       {/* Corner Accents */}
       <div className="absolute top-0 left-0 w-64 h-64 opacity-30">
-        <div className="absolute top-8 left-8 w-32 h-px bg-gradient-to-r from-primary/50 to-transparent" />
-        <div className="absolute top-8 left-8 w-px h-32 bg-gradient-to-b from-primary/50 to-transparent" />
+        <div className="absolute top-8 left-8 w-32 h-px bg-linear-to-r from-primary/50 to-transparent" />
+        <div className="absolute top-8 left-8 w-px h-32 bg-linear-to-b from-primary/50 to-transparent" />
       </div>
 
       <div className="absolute top-0 right-0 w-64 h-64 opacity-30">
