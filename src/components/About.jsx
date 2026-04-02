@@ -29,10 +29,6 @@ const About = () => {
 
   return (
     <section id="about" className="py-24 relative">
-      {/* <div
-        className="floating-blob w-72 h-72 bg-accent/15 top-0 right-0"
-        style={{ animationDelay: "-3s" }}
-      /> */}
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <motion.div
@@ -42,7 +38,7 @@ const About = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-primary font-mono text-sm mb-4 block">
+          <span className="gradient-text font-mono text-sm mb-4 block">
             Get to know me
           </span>
           <h2 className="section-heading">

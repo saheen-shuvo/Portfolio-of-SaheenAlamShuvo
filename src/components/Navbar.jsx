@@ -54,10 +54,7 @@ const Navbar = () => {
   };
 
   return (
-    <motion.nav
-      initial={isMobile ? false : { y: -100 }}
-      animate={isMobile ? false : { y: 0 }}
-      transition={isMobile ? { duration: 0 } : { duration: 0.6 }}
+    <nav
       className={`fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300 ${
         scrolled ? "py-3" : "py-4"
       }`}
@@ -169,7 +166,7 @@ const Navbar = () => {
           </div>
         </div>
       </motion.div>
-    </motion.nav>
+    </nav>
   );
 };
 
