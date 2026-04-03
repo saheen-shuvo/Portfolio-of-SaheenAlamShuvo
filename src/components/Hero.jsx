@@ -105,13 +105,14 @@ const Hero = () => {
               <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-primary/30 shadow-2xl">
                 <Image
                   src={profilePic}
+                  priority
                   alt="Saheen Alam Shuvo"
                   className="w-full h-full object-cover"
                 />
               </div>
 
               {/* subtle ring (no animation) */}
-              <div className="absolute -inset-4 border border-primary/20 rounded-full" />
+              <div className="absolute -inset-4 border-2 border-primary/10 rounded-full" />
             </div>
           </div>
         </div>
