@@ -1,15 +1,10 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
+import { ArrowRight, Mail, Send } from "lucide-react";
 import { useRef, useState } from "react";
-import {
-  Mail,
-  Github,
-  Linkedin,
-  FacebookIcon,
-  Send,
-  ArrowRight,
-} from "lucide-react";
+import { FaGithub, FaLinkedin, FaFacebookSquare } from "react-icons/fa";
+import emailjs from "@emailjs/browser";
 
 const socialLinks = [
   {
@@ -19,19 +14,19 @@ const socialLinks = [
     value: "saheenshuvo182@gmail.com",
   },
   {
-    icon: "Github",
+    icon: FaGithub,
     label: "GitHub",
     href: "https://github.com/saheen-shuvo",
     value: "github.com/saheen-shuvo",
   },
   {
-    icon: "Linkedin",
+    icon: FaLinkedin,
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/saheen-alam-shuvo-182-li/",
     value: "linkedin.com/in/saheenalamshuvo",
   },
   {
-    icon: "FacebookIcon",
+    icon: FaFacebookSquare,
     label: "Facebook",
     href: "https://www.facebook.com/share/16KUdWWeCm/?mibextid=wwXIfr",
     value: "facebook.com/saheenalamshuvo",
@@ -39,6 +34,7 @@ const socialLinks = [
 ];
 
 const Contact = () => {
+  const [success, setSuccess] = useState(false);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -50,26 +46,44 @@ const Contact = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!formData.name || !formData.email || !formData.message) {
+      return;
+    }
+
     setIsSubmitting(true);
+    setSuccess(false);
 
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      await emailjs.send(
+        "service_7euux9r",
+        "template_h027abc",
+        {
+          user_email: formData.email, 
+          message: formData.message,
+          name: formData.name, 
+          reply_to: formData.email,
+        },
+        "XyhIUC2GDqccnJCpH",
+      );
+
       setFormData({ name: "", email: "", message: "" });
-      alert("Thank you for your message! I'll get back to you soon.");
-    }, 1000);
+      setSuccess(true);
+    } catch (error) {
+      console.error(error);
+      alert("Failed to send message. Try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
-
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   return (
-    <section
-      id="contact"
-      className="py-16 md:py-24 relative overflow-x-hidden"
-    >
+    <section id="contact" className="py-16 md:py-24 relative overflow-x-hidden">
       <div
         className="hidden md:block floating-blob w-80 h-80 bg-accent/15 top-0 right-1/4"
         style={{ animationDelay: "-15s" }}
@@ -98,8 +112,7 @@ const Contact = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto">
-          <div
-          >
+          <div>
             <h3 className="text-2xl font-bold mb-6">Contact Info</h3>
 
             <p className="text-muted-foreground mb-8">
@@ -137,9 +150,7 @@ const Contact = () => {
             </div>
           </div>
 
-          <div
-
-          >
+          <div>
             <form onSubmit={handleSubmit} className="glass-card p-6 md:p-8">
               <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
 
@@ -216,6 +227,11 @@ const Contact = () => {
                   )}
                 </button>
               </div>
+              {success && (
+                <p className="text-green-500 text-sm mt-2 text-center py-3">
+                  Message sent successfully!
+                </p>
+              )}
             </form>
           </div>
         </div>

@@ -97,17 +97,12 @@ const ExchangeGallery = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <motion.div
-            initial={{ scale: 0 }}
-            animate={isInView ? { scale: 1 } : {}}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6"
-          >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
             <Plane className="w-4 h-4 text-primary" />
             <span className="text-primary font-mono text-sm">
               Erasmus+ Journey
             </span>
-          </motion.div>
+          </div>
 
           <h2 className="section-heading">
             <span className="gradient-text">Exchange</span> Memories
@@ -119,12 +114,7 @@ const ExchangeGallery = () => {
 
         {/* Featured Image Showcase */}
         <div className="mb-16">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="relative max-w-4xl mx-auto"
-          >
+          <div className="relative max-w-4xl mx-auto">
             {/* Main Display */}
             <div className="relative aspect-video rounded-3xl overflow-hidden glass-card p-1">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/20 rounded-3xl" />
@@ -138,9 +128,8 @@ const ExchangeGallery = () => {
                   alt={galleryImages[activeIndex].title}
                   width={1200}
                   height={675}
-                  className="object-cover"
+                  className="w-full h-full object-cover object-center"
                   priority
-                  sizes="(max-width: 768px) 100vw, 800px"
                 />
                 {/* Overlay with info */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8">
@@ -200,15 +189,10 @@ const ExchangeGallery = () => {
             </div>
 
             {/* Floating Stats */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="absolute -left-4 top-1/4 glass-card px-4 py-3 hidden lg:block"
-            >
+            <div className="absolute -left-4 top-1/4 glass-card px-4 py-3 hidden lg:block">
               <div className="text-2xl font-bold gradient-text">4+</div>
               <div className="text-xs text-muted-foreground">Months Abroad</div>
-            </motion.div>
+            </div>
 
             <motion.div
               initial={{ opacity: 0, x: 50 }}
@@ -235,7 +219,7 @@ const ExchangeGallery = () => {
               <div className="text-2xl font-bold gradient-text">🇪🇺</div>
               <div className="text-xs text-muted-foreground">Erasmus+</div>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Thumbnail Grid */}
@@ -267,10 +251,9 @@ const ExchangeGallery = () => {
               </div>
 
               {activeIndex === index && (
-                <motion.div
+                <div
                   layoutId="activeIndicator"
                   className="absolute inset-0 border-2 border-primary rounded-2xl"
-                  transition={{ duration: 0.3 }}
                 />
               )}
             </motion.div>
@@ -278,12 +261,7 @@ const ExchangeGallery = () => {
         </div>
 
         {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.8 }}
-          className="text-center mt-12"
-        >
+        <div className="text-center mt-12">
           <p className="text-muted-foreground mb-4">
             More memories coming soon...
           </p>
@@ -291,7 +269,7 @@ const ExchangeGallery = () => {
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
             Uploading experiences
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

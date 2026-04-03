@@ -1,15 +1,35 @@
-import About from "@/components/About";
-import Achievements from "@/components/Achievements";
-import Contact from "@/components/Contact";
-import ExchangeGallery from "@/components/ExchangeGallery";
-import Footer from "@/components/Footer";
-import Hero from "@/components/Hero";
-import Highlights from "@/components/Highlights";
-import Navbar from "@/components/Navbar";
-import Projects from "@/components/Projects";
-import Skills from "@/components/Skills";
-import Stats from "@/components/Stats";
+import dynamic from "next/dynamic";
 
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import Footer from "@/components/Footer";
+
+const sectionLoading = () => <div className="h-24" />;
+
+const About = dynamic(() => import("@/components/About"), {
+  loading: sectionLoading,
+});
+const Skills = dynamic(() => import("@/components/Skills"), {
+  loading: sectionLoading,
+});
+const Projects = dynamic(() => import("@/components/Projects"), {
+  loading: sectionLoading,
+});
+const Stats = dynamic(() => import("@/components/Stats"), {
+  loading: sectionLoading,
+});
+const Achievements = dynamic(() => import("@/components/Achievements"), {
+  loading: sectionLoading,
+});
+const ExchangeGallery = dynamic(() => import("@/components/ExchangeGallery"), {
+  loading: sectionLoading,
+});
+const Contact = dynamic(() => import("@/components/Contact"), {
+  loading: sectionLoading,
+});
+const Highlights = dynamic(() => import("@/components/Highlights"), {
+  loading: sectionLoading,
+});
 
 export default function Home() {
   return (

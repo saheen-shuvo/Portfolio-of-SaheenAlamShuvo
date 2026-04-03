@@ -56,8 +56,6 @@ const achievements = [
 ];
 
 const Achievements = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
     <section id="achievements" className="py-16 md:py-24 relative">
@@ -71,11 +69,7 @@ const Achievements = () => {
       />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+        <div
           className="text-center mb-10 md:mb-16"
         >
           <span className="text-primary font-mono text-sm mb-4 block">
@@ -92,7 +86,7 @@ const Achievements = () => {
           <p className="text-muted-foreground max-w-xl mx-auto">
             Milestones, experiences, and accomplishments that shape my journey
           </p>
-        </motion.div>
+        </div>
 
         <div className="mb-12">
           <div className="glass-card p-6 md:p-10 max-w-4xl mx-auto relative overflow-hidden group">

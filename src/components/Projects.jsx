@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 // import { ExternalLink, Github } from "lucide-react";
+import { FiGithub } from "react-icons/fi";
 
 import logixshuvoImg from "../assets/projects/logix.webp";
 import shuvoBitesImg from "@/assets/projects/shuvobites.webp";
@@ -9,6 +10,7 @@ import shaheen from "../assets/projects/shaheen.webp";
 import ia from "../assets/projects/ia.webp";
 import cp from "../assets/projects/cp.webp";
 import Image from "next/image";
+import { FaExternalLinkAlt } from "react-icons/fa";
 
 const projects = [
   {
@@ -124,10 +126,6 @@ const ProjectCard = ({ project, index }) => {
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="w-full h-48 md:h-56 object-cover object-center transition-transform duration-500 md:group-hover:scale-105"
         />
-        {/* Gradient Overlay */}
-        <div
-          className={`absolute inset-0 bg-linear-to-br ${project.gradient} opacity-10 md:group-hover:opacity-20 md:transition-opacity md:duration-500`}
-        />
       </div>
 
       {/* Content */}
@@ -144,7 +142,7 @@ const ProjectCard = ({ project, index }) => {
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary font-medium"
+              className="text-xs px-2 py-1 rounded-full bg-primary/10 border border-gray-50/15 gradient-text font-medium"
             >
               {tag}
             </span>
@@ -162,11 +160,9 @@ const ProjectCard = ({ project, index }) => {
               className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-primary transition-colors"
             >
               {link.label.includes("Repo") ? (
-                // <Github size={14} />
-                <h1 className="text-sm font-bold">Repo</h1>
+                <FiGithub />
               ) : (
-                // <ExternalLink size={14} />
-                <h1 className="text-sm font-bold">Live</h1>
+                <FaExternalLinkAlt />
               )}
               {link.label}
             </a>
