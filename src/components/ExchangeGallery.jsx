@@ -136,7 +136,8 @@ const ExchangeGallery = () => {
                 <Image
                   src={galleryImages[activeIndex].image}
                   alt={galleryImages[activeIndex].title}
-                  fill
+                  width={1200}
+                  height={675}
                   className="object-cover"
                   priority
                   sizes="(max-width: 768px) 100vw, 800px"
@@ -255,10 +256,10 @@ const ExchangeGallery = () => {
               <Image
                 src={image.image}
                 alt={image.title}
-                fill
-                className="object-cover"
+                width={300}
+                height={300}
+                className="w-full h-full object-cover"
               />
-
               <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex items-end justify-center p-3 opacity-0 md:group-hover:opacity-100 transition">
                 <span className="text-xs font-medium text-white text-center line-clamp-2">
                   {image.title}
