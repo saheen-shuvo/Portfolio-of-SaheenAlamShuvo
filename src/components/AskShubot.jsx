@@ -28,7 +28,9 @@ const AskShubot = () => {
   const messagesEndRef = useRef(null);
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+    }
   }, [messages, isLoading]);
 
   const handleSend = async () => {
@@ -53,7 +55,7 @@ const AskShubot = () => {
         body: JSON.stringify({ message: userMessage.content }),
       });
 
-      const data = await res.json();
+      const data = await res.json().catch(() => ({}));
 
       if (!res.ok) {
         throw new Error(data?.reply || "Request failed");
@@ -104,14 +106,9 @@ const AskShubot = () => {
 
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.96 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.96 }}
-            transition={{ duration: 0.2 }}
-            className="fixed bottom-6 right-6 z-50 flex h-[520px] w-[380px] max-h-[calc(100vh-120px)] max-w-[calc(100vw-24px)] flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-2xl"
+          <div
+            className="fixed bottom-6 right-6 z-50 flex h-[520px] w-[380px] max-h-[calc(100vh-120px)] max-w-[calc(100vw-24px)] flex-col overflow-hidden rounded-2xl  bg-white shadow-2xl"
           >
-            {/* Header */}
             <div className="flex items-center justify-between bg-gradient-to-r from-blue-600 to-cyan-500 p-4">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20">
@@ -138,7 +135,6 @@ const AskShubot = () => {
               </button>
             </div>
 
-            {/* Messages */}
             <div className="flex-1 space-y-4 overflow-y-auto bg-gray-50 p-4">
               {messages.map((message) => (
                 <div
@@ -165,7 +161,7 @@ const AskShubot = () => {
                     className={`max-w-[78%] rounded-2xl px-4 py-3 text-sm shadow-sm ${
                       message.role === "user"
                         ? "rounded-br-md bg-blue-600 text-white"
-                        : "rounded-bl-md bg-white text-gray-800 border border-gray-200"
+                        : "rounded-bl-md border border-gray-200 bg-white text-gray-800"
                     }`}
                   >
                     <div className="prose prose-sm max-w-none prose-p:my-0 prose-ul:my-1 prose-ol:my-1 prose-strong:text-inherit">
@@ -190,7 +186,6 @@ const AskShubot = () => {
               <div ref={messagesEndRef} />
             </div>
 
-            {/* Input */}
             <div className="border-t border-gray-200 bg-white p-4">
               <div className="flex gap-2">
                 <input
@@ -222,7 +217,7 @@ const AskShubot = () => {
                 Powered by AI • Answers based on Shuvo&apos;s portfolio
               </p>
             </div>
-          </motion.div>
+          </div>
         )}
       </AnimatePresence>
     </>
