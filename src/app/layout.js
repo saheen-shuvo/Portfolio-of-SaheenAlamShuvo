@@ -13,8 +13,28 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Shuvo X Dev",
-  description: "Portfolio website of Shuvo, a full-stack web developer.",
+  title: "Saheen Alam Shuvo | Full Stack Developer",
+  description:
+    "Full Stack Developer specializing in React, Next.js, Node.js, and modern web applications.",
+  openGraph: {
+    title: "Saheen Alam Shuvo | Full Stack Developer",
+    description:
+      "Portfolio of Saheen Alam Shuvo, Full Stack Developer and Competitive Programmer.",
+    url: "https://saheenalamshuvo.me",
+    siteName: "ShuvoXDev",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    type: "website",
+  },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({ children }) {
