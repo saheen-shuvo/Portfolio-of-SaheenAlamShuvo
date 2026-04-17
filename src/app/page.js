@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
+import AskShubot from "@/components/AskShubot";
 
 const sectionLoading = () => <div className="h-24" />;
 
@@ -45,6 +46,8 @@ export default function Home() {
       <Highlights />
       <Contact />
       <Footer />
+
+      <AskShubot />
     </main>
   );
 }

@@ -3,7 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { ArrowRight, Mail, Send } from "lucide-react";
 import { useRef, useState } from "react";
-import { FaGithub, FaLinkedin, FaFacebookSquare } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaFacebookSquare, FaWhatsapp } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
 
 const socialLinks = [
@@ -30,6 +30,12 @@ const socialLinks = [
     label: "Facebook",
     href: "https://www.facebook.com/share/16KUdWWeCm/?mibextid=wwXIfr",
     value: "facebook.com/saheenalamshuvo",
+  },
+  {
+    icon: FaWhatsapp,
+    label: "WhatsApp",
+    href: "https://wa.me/8801751967704", 
+    value: "+8801751967704",
   },
 ];
 
@@ -61,9 +67,9 @@ const Contact = () => {
         "service_7euux9r",
         "template_h027abc",
         {
-          user_email: formData.email, 
+          user_email: formData.email,
           message: formData.message,
-          name: formData.name, 
+          name: formData.name,
           reply_to: formData.email,
         },
         "XyhIUC2GDqccnJCpH",
@@ -154,7 +160,7 @@ const Contact = () => {
             <form onSubmit={handleSubmit} className="glass-card p-6 md:p-8">
               <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
 
-              <div className="space-y-5">
+              <div className="space-y-7">
                 <div>
                   <label
                     htmlFor="name"

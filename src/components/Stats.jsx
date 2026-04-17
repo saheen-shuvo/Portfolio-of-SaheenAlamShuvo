@@ -107,11 +107,8 @@ const Stats = () => {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
           {stats.map((stat, index) => (
-            <motion.div
+            <div
               key={stat.label}
-              initial={{ opacity: 0, y: 50, scale: 0.9 }}
-              animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
               className="glass-card p-5 md:p-8 text-center group relative overflow-hidden transition-transform duration-300 md:hover:-translate-y-2"
             >
               {/* Background glow on hover */}
@@ -140,7 +137,7 @@ const Stats = () => {
               <div
                 className={`absolute -bottom-2 -right-2 w-16 h-16 bg-linear-to-br ${stat.gradient} opacity-10 rounded-tl-3xl`}
               />
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

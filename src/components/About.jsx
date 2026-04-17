@@ -52,19 +52,15 @@ const About = () => {
 
         <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {aboutItems.map((item, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -5, transition: { duration: 0.2 } }}
               className="glass-card p-6 flex items-start gap-4 group"
             >
               <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
                 <item.icon size={24} />
               </div>
               <p className="text-foreground/90 leading-relaxed">{item.text}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
