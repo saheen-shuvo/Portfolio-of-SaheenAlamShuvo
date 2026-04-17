@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://www.saheenalamshuvo.me"),
   title: "Saheen Alam Shuvo | Full Stack Developer",
   description:
     "Full Stack Developer specializing in React, Next.js, Node.js, and modern web applications.",
@@ -20,7 +21,7 @@ export const metadata = {
     title: "Saheen Alam Shuvo | Full Stack Developer",
     description:
       "Portfolio of Saheen Alam Shuvo, Full Stack Developer and Competitive Programmer.",
-    url: "https://saheenalamshuvo.me",
+    url: "https://www.saheenalamshuvo.me",
     siteName: "ShuvoXDev",
     images: [
       {
@@ -37,6 +38,9 @@ export const metadata = {
   },
   verification: {
     google: "1600130465799eeb",
+  },
+  alternates: {
+    canonical: "https://www.saheenalamshuvo.me",
   },
 };
 
