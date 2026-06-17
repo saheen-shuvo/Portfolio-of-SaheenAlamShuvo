@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import profilePic from "../assets/images/HeroImg/heroBanner.webp";
+import profilePic from "../assets/images/HeroImg/Shuvo.jpeg";
 import { FaArrowDown, FaGithub, FaLinkedin } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
 
