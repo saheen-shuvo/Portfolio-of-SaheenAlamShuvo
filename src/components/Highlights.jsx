@@ -37,10 +37,6 @@ const Highlights = () => {
 
   return (
     <section id="highlights" className="py-16 md:py-24 relative overflow-x-hidden">
-      <div
-        className="hidden md:block floating-blob w-72 h-72 bg-primary/15 bottom-0 left-1/4"
-        style={{ animationDelay: "-8s" }}
-      />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <motion.div
